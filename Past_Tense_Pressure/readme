@@ -1,1 +1,82 @@
+Past-Tense Pressure ⏱️💬
 
+Past-Tense Pressure is a single-page, interactive web application designed specifically for ESL 410 (high beginner) classrooms. It provides a fun, competitive environment for students to practice forming and answering questions in the Simple Past tense.
+
+The game balances engaging game mechanics (points, steals, special action cards) with focused language pedagogy.
+
+🎯 Pedagogical Focus
+
+Target Grammar: Simple Past Tense (Questions and Answers).
+
+Vocabulary: The 100 most common English verbs (50 regular, 50 irregular) and nouns/adjectives from Fry’s 1-200 sight word list.
+
+Core Loop: Students are prompted either with a past-tense question (requiring them to generate the answer) or a past-tense answer (requiring them to generate the correct Wh- question).
+
+✨ Features
+
+Responsive Classroom UI: Designed using viewport units (vw/vh) to ensure maximum legibility from the back of a physical classroom.
+
+Massive Built-in Database: Includes 200 unique, hand-crafted Q&A pairs embedded directly in the code.
+
+Dynamic Team Management: Add, remove, and rename up to 6 teams with distinct color tracking.
+
+"Steal" Mechanics: If a team answers incorrectly, the turn rotates to the next team for a 30-second window to steal the points for half credit.
+
+Special Action Cards: Randomly generated Prizes, Penalties, and Wildcards (e.g., "Donate 5 points to Last Place", "Answer a question for Double Points").
+
+Aural & Visual Timers: A built-in 3-minute timer with visual warnings at 30 seconds and a screen-shake/audio beep for the final 10 seconds.
+
+Teacher Pacing: A manual "Next Turn" progression system allows the teacher to pause and explain grammar points before moving to the next team.
+
+🚀 Setup & Installation (Plug and Play)
+
+This application is completely self-contained in a single HTML file, making it incredibly easy to host or play offline.
+
+Option 1: GitHub Pages (Recommended)
+
+Create a new repository on GitHub.
+
+Upload the index.html file to the root of the repository.
+
+Go to your repository Settings -> Pages.
+
+Set the source to the main branch and save.
+
+Your game will be live at https://[your-username].github.io/[repository-name]/!
+
+Option 2: Offline Play
+
+Download the index.html file to your local computer.
+
+Double-click the file to open it in any modern web browser (Chrome, Firefox, Safari, Edge).
+Note: An internet connection is required the very first time it loads to fetch the Tailwind CSS framework via CDN.
+
+🎲 How to Play
+
+Setup Mode: Before starting, use the Add Team / Remove Team buttons to match your classroom size. Click on the team names ("Team 1", "Team 2") to rename them.
+
+Start: Click Begin New Game to shuffle the 25-card deck (20 Language Cards, 5 Special Cards).
+
+Taking Turns: The active team selects a number from 1-25. The card flips to reveal a prompt.
+
+Scoring:
+
+If the team answers correctly, the teacher clicks Correct (+10 points).
+
+If incorrect, the teacher clicks Incorrect. The timer resets to 30 seconds, and the next team in the rotation has a chance to steal for 5 points.
+
+Special Cards: Follow the on-screen prompts for Prizes and Penalties. The game automatically handles complex math (like ties for first/last place fraction splitting).
+
+Next Turn: Once the answer is revealed and the teacher finishes explaining, click Next Turn to pass the board to the next team.
+
+Winning: The game ends when all 25 cards are cleared. The team with the highest score wins!
+
+🛠️ Tech Stack
+
+HTML5 / CSS3 / Vanilla JavaScript: No complex build tools or bundlers required.
+
+Tailwind CSS: Used via CDN for rapid, responsive styling.
+
+Web Audio API: Used to generate the 10-second warning beeps without needing external .mp3 files.
+
+Created for ESL Language Acquisition & Gamified Learning.
