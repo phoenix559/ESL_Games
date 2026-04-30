@@ -7,9 +7,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom Animations & Base Overrides */
-        body { margin: 0; padding: 0; overflow: hidden; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { margin: 0; padding: 0; overflow: hidden; background-color: #111827; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         
-        .row-grid { display: grid; grid-template-rows: 10vh 10vh 60vh 20vh; height: 100vh; width: 100vw; }
+        #app-container {
+            width: 100vw;
+            height: 100vh;
+            max-width: 177.78vh; /* 16:9 Aspect Ratio Lock */
+            max-height: 56.25vw; /* 16:9 Aspect Ratio Lock */
+            background-color: #f3f4f6;
+            container-type: size;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .row-grid { display: grid; grid-template-rows: 10% 10% 60% 20%; height: 100%; width: 100%; }
         
         /* 3D Flip Card Styles */
         .perspective-1000 { perspective: 1000px; }
@@ -38,25 +50,26 @@
         .shake-anim { animation: shake 0.4s ease-in-out infinite; }
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-1vw); }
-            75% { transform: translateX(1vw); }
+            25% { transform: translateX(-1cqw); }
+            75% { transform: translateX(1cqw); }
         }
 
         /* Text Sizing Helpers */
-        .text-giant { font-size: 8vw; line-height: 1; }
-        .text-huge { font-size: 6vw; line-height: 1.1; }
-        .text-large { font-size: 4vw; line-height: 1.2; }
-        .text-medium { font-size: 2vw; }
-        .text-small { font-size: 1.2vw; }
+        .text-giant { font-size: 8cqw; line-height: 1; }
+        .text-huge { font-size: 6cqw; line-height: 1.1; }
+        .text-large { font-size: 4cqw; line-height: 1.2; }
+        .text-medium { font-size: 2cqw; }
+        .text-small { font-size: 1.2cqw; }
     </style>
 </head>
-<body class="bg-gray-100 select-none">
+<body class="bg-gray-900 select-none">
 
-    <div class="row-grid">
-        <!-- ROW 1: HEADER -->
-        <header class="bg-blue-800 text-white flex items-center justify-center shadow-md z-10">
-            <h1 class="text-huge font-bold tracking-wider">Past-Tense Pressure</h1>
-        </header>
+    <div id="app-container">
+        <div class="row-grid">
+            <!-- ROW 1: HEADER -->
+            <header class="bg-blue-800 text-white flex items-center justify-center shadow-md z-10">
+                <h1 class="text-huge font-bold tracking-wider">Past-Tense Pressure</h1>
+            </header>
 
         <!-- ROW 2: GAME STATUS -->
         <div class="grid grid-cols-2 shadow-sm z-10">
@@ -97,11 +110,11 @@
                 <!-- Teacher Controls -->
                 <div id="teacher-controls" class="flex gap-8 mt-auto hidden">
                     <button id="btn-incorrect" class="bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-10 rounded-2xl text-large shadow-lg flex items-center gap-4 transition transform hover:scale-105">
-                        <svg class="w-[4vw] h-[4vw]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        <svg class="w-[1em] h-[1em]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>
                         Incorrect
                     </button>
                     <button id="btn-correct" class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-10 rounded-2xl text-large shadow-lg flex items-center gap-4 transition transform hover:scale-105">
-                        <svg class="w-[4vw] h-[4vw]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        <svg class="w-[1em] h-[1em]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                         Correct
                     </button>
                 </div>
@@ -134,18 +147,19 @@
         </main>
 
         <!-- ROW 4: ADMIN & SCOREBOARD -->
-        <footer class="bg-gray-200 border-t-4 border-gray-300 flex">
-            <!-- Left 1/3: Admin -->
-            <div class="w-1/4 min-w-[200px] border-r-4 border-gray-300 p-4 flex flex-col justify-center gap-3 bg-gray-100">
-                <button id="add-team-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-medium shadow">Add Team</button>
-                <button id="remove-team-btn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded text-medium shadow">Remove Team</button>
+        <footer class="bg-gray-200 border-t-4 border-gray-300 flex h-full">
+            <!-- Left Admin -->
+            <div class="w-[20%] min-w-[120px] border-r-4 border-gray-300 p-2 flex flex-col justify-center gap-3 bg-gray-100">
+                <button id="add-team-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded text-medium shadow">Add Team</button>
+                <button id="remove-team-btn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-2 rounded text-medium shadow">Remove Team</button>
             </div>
             
-            <!-- Right 3/4: Scoreboard -->
-            <div id="scoreboard-container" class="w-3/4 flex-grow flex overflow-x-auto items-center p-4 gap-6 px-6">
+            <!-- Right Scoreboard -->
+            <div id="scoreboard-container" class="w-[80%] flex-grow flex justify-evenly items-center p-2 gap-2">
                 <!-- Team widgets injected here -->
             </div>
         </footer>
+        </div>
     </div>
 
     <!-- AUDIO CONTEXT SCRIPT & GAME LOGIC -->
@@ -471,17 +485,24 @@
 
         function renderTeams() {
             scoreboardContainer.innerHTML = '';
+            
+            // Dynamic text scaling to prevent truncation when more teams are added
+            const nameFontSize = teams.length > 4 ? `${16 / teams.length}cqw` : '4cqw';
+            const scoreFontSize = teams.length > 4 ? `${24 / teams.length}cqw` : '6cqw';
+
             teams.forEach((t, i) => {
                 const widget = document.createElement('div');
-                widget.className = `flex flex-col items-center justify-between p-4 rounded-xl shadow-md min-w-[200px] h-[15vh] transition border-b-8`;
+                // Changed justify-between to justify-center to move the text up and away from the bottom border
+                widget.className = `flex-1 min-w-0 flex flex-col items-center justify-center p-2 rounded-xl shadow-md h-[90%] transition border-b-8`;
                 widget.style.borderBottomColor = t.color.lightHex;
                 widget.style.backgroundColor = (isPlaying && i === currentTeamIndex) ? '#f0fdf4' : 'white';
                 
                 widget.innerHTML = `
                     <input type="text" value="${t.name}" onchange="updateTeamName(${i}, this.value)" 
-                           class="text-large font-bold text-center w-full bg-transparent outline-none text-gray-800"
+                           class="font-bold text-center w-full bg-transparent outline-none text-gray-800 text-ellipsis overflow-hidden whitespace-nowrap transition-all duration-300 mb-1"
+                           style="font-size: ${nameFontSize}; line-height: 1.2;"
                            ${isPlaying ? 'readonly' : ''}>
-                    <div class="text-huge font-extrabold" style="color: ${t.color.darkHex}">${t.score}</div>
+                    <div class="font-extrabold leading-none transition-all duration-300 mt-1" style="color: ${t.color.darkHex}; font-size: ${scoreFontSize};">${t.score}</div>
                 `;
                 scoreboardContainer.appendChild(widget);
             });
@@ -501,33 +522,55 @@
 
         // --- 6. DECK GENERATION & CARD LOGIC ---
         function generateDeck() {
-            // Pick 20 unique Q&A pairs
-            let shuffledDB = [...qaDatabase].sort(() => 0.5 - Math.random());
-            let selectedQA = shuffledDB.slice(0, 20);
-            remainingQA = shuffledDB.slice(20);
+            // Filter DB into Yes/No Questions and Wh-Questions
+            let ynDB = qaDatabase.filter(item => /^(Did|Was|Were)\b/i.test(item.q)).sort(() => 0.5 - Math.random());
+            let whDB = qaDatabase.filter(item => !/^(Did|Was|Were)\b/i.test(item.q)).sort(() => 0.5 - Math.random());
             
             deck = [];
             
-            // 10 Cards: Display Question, Need Answer
-            for (let i = 0; i < 10; i++) {
+            // 5 Cards: Y/N Question, Need Answer
+            for (let i = 0; i < 5; i++) {
                 deck.push({
                     type: 'qa-question',
-                    display: selectedQA[i].q,
-                    expected: selectedQA[i].a,
+                    display: ynDB[i].q,
+                    expected: ynDB[i].a,
+                    used: false
+                });
+            }
+
+            // 5 Cards: Wh- Question, Need Answer
+            for (let i = 0; i < 5; i++) {
+                deck.push({
+                    type: 'qa-question',
+                    display: whDB[i].q,
+                    expected: whDB[i].a,
                     used: false
                 });
             }
             
-            // 10 Cards: Display Answer, Need Question
-            for (let i = 10; i < 20; i++) {
+            // 5 Cards: Y/N Answer, Need Question
+            for (let i = 5; i < 10; i++) {
                 deck.push({
                     type: 'qa-answer',
-                    display: selectedQA[i].a,
-                    expected: selectedQA[i].q,
+                    display: ynDB[i].a,
+                    expected: ynDB[i].q,
+                    used: false
+                });
+            }
+
+            // 5 Cards: Wh- Answer, Need Question
+            for (let i = 5; i < 10; i++) {
+                deck.push({
+                    type: 'qa-answer',
+                    display: whDB[i].a,
+                    expected: whDB[i].q,
                     used: false
                 });
             }
             
+            // Store remaining questions for Double Points mechanic
+            remainingQA = [...ynDB.slice(10), ...whDB.slice(10)].sort(() => 0.5 - Math.random());
+
             // 5 Special Cards
             for (let i = 0; i < 2; i++) deck.push(generatePenalty());
             for (let i = 0; i < 2; i++) deck.push(generatePrize());
@@ -653,7 +696,7 @@
                 overlayContent.className = `text-giant font-extrabold mb-8 ${card.color} w-full px-4 break-words drop-shadow-md`;
                 specialControls.classList.remove('hidden');
             } else {
-                let catText = card.type === 'qa-question' ? "Provide the Answer:" : "Provide the Wh-Question:";
+                let catText = card.type === 'qa-question' ? "Provide the Answer:" : "Provide the Question:";
                 if (doublePointsActive) catText += " (DOUBLE POINTS!)";
                 overlayCategory.textContent = catText;
                 
