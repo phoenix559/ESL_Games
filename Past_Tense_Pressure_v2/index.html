@@ -1,27 +1,48 @@
 <!DOCTYPE html>
 <html>
+<!-- 
+======================================================================
+CURRENT STATE: We successfully built the 4-row HTML skeleton using 
+<header>, <div>, and <footer> tags. 
+NEXT OBJECTIVE: Add the Tailwind CSS CDN script link into the <head> 
+tag to prepare for styling.
+======================================================================
+-->
+
 <head>
+    <!-- This is what appears on the tab -->
     <title>Past-Tense Pressure</title>
 </head>
+
 <body>
+    <header>
+        <!-- Top Quadrant (game title) -->
+        <h1>Past-Tense Pressure: Smart Edition</h1>
+        
+        <!-- API Key entry-->
+        <input type="password">
+        <button> Save API Key </button>
     
-    <!-- INSTRUCTIONS: Replace this text with the HTML tags below! -->
+        <!-- Student Answer Entry and Checker -->
+        <input type="text">
+        <button> Check Answer </button>
+    </header>
     
-    <!-- 1. Create an h1 tag that says "Past-Tense Pressure: Smart Edition" -->
-    <h1>
-        "Past-Tense Pressure: Smart Edition"
-    </h1>
-    <!-- 2. Create a password input tag for the API key -->
-    <input type="text">
-    <!-- 3. Create a button that says "Save API Key" -->
-    <button> 
-        "Save API Key"
-    </button>
-    <!-- 4. Create a text input tag for the Student's Answer -->
-    <input type="text"
-    <!-- 5. Create a button that says "Check Answer" -->
-    <button> 
-        "Check Answer"
-    </button>
+    <div>
+        <!-- Status Bar with current team playing and timer -->
+        <h2>Turn: Team #</h2>
+        <h2>3:00</h2>
+    </div>
+    
+    <div>
+        <!-- gameboard -->
+    </div>
+    <footer>
+        <!-- Scoreboard -->
+        <button>Add Team</button>
+        <button>Remove Team</button>
+        <h2>Team 1</h2>
+    </footer>
+
 </body>
 </html>
